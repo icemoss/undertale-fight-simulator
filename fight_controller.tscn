@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgrhpo52l3s5s"]
+
+[ext_resource type="Script" uid="uid://6vap2gpu0xm5" path="res://fight_controller.gd" id="1_a520s"]
+
+[node name="FightController" type="Node2D"]
+script = ExtResource("1_a520s")

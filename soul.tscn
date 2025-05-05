@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnq44ufiu1g2i"]
+
+[ext_resource type="Texture2D" uid="uid://bnq1am6dc1k2q" path="res://sprites/soul.png" id="1_7iwn2"]
+[ext_resource type="Script" uid="uid://dca1jj71qll46" path="res://soul.gd" id="1_nq8dp"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["soul"]]
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_nq8dp")
+speed = 200
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-6, -8, -6, -7, -7, -7, -7, -6, -8, -6, -8, 2, -6, 2, -6, 4, -4, 4, -4, 6, -2, 6, -2, 8, 2, 8, 2, 6, 4, 6, 4, 4, 6, 4, 6, 2, 8, 2, 8, -6, 7, -6, 7, -7, 6, -7, 6, -8, 4, -8, 4, -7, 2, -7, 2, -6, 1, -6, 1, -4, -1, -4, -1, -6, -2, -6, -2, -7, -4, -7, -4, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7iwn2")
