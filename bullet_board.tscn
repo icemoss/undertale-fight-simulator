@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4oy8rjleljvc"]
+[gd_scene load_steps=3 format=3 uid="uid://c4oy8rjleljvc"]
 
 [ext_resource type="Texture2D" uid="uid://csbqnrswtx8d7" path="res://sprites/bulletboard.png" id="1_q2owp"]
+[ext_resource type="Script" uid="uid://dafdw0g1a4eui" path="res://bullet_board.gd" id="1_x0hu7"]
 
 [node name="BulletBoard" type="StaticBody2D"]
+script = ExtResource("1_x0hu7")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-82, -70, 82, -70, 82, 70, -82, 70, -82, -65, -78, -65, -78, 65, 78, 65, 78, -65, -82, -65)

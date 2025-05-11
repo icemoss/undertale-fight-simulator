@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgu2yavjppo0v"]
+
+[ext_resource type="Texture2D" uid="uid://ck35kixobaxpo" path="res://sprites/hp_title.png" id="1_dvkvp"]
+[ext_resource type="Script" uid="uid://dbj0ul83vkepl" path="res://stat_bar.gd" id="1_fsphq"]
+[ext_resource type="FontFile" uid="uid://bi0cbn842flqc" path="res://fonts/Mars_Needs_Cunnilingus.ttf" id="2_kds0a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ve7aw"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvkvp"]
+bg_color = Color(1, 1, 0, 1)
+
+[node name="StatBar" type="Control" node_paths=PackedStringArray("hp_bar", "hp_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fsphq")
+hp_bar = NodePath("HpBar")
+hp_label = NodePath("HpLabel")
+
+[node name="NameLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -245.0
+offset_right = -98.0
+offset_bottom = 40.0
+theme_override_fonts/normal_font = ExtResource("2_kds0a")
+theme_override_font_sizes/normal_font_size = 24
+text = "MsMss"
+
+[node name="LevelLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -137.0
+offset_right = -27.0
+offset_bottom = 45.0
+theme_override_fonts/normal_font = ExtResource("2_kds0a")
+theme_override_font_sizes/normal_font_size = 24
+text = "LV 20"
+autowrap_mode = 0
+
+[node name="HpImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -35.0
+offset_right = -3.0
+offset_bottom = 20.0
+texture = ExtResource("1_dvkvp")
+
+[node name="HpBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 25.0
+offset_bottom = 21.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ve7aw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dvkvp")
+max_value = 99.0
+value = 99.0
+show_percentage = false
+
+[node name="HpLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_right = 162.0
+offset_bottom = 47.0
+theme_override_fonts/normal_font = ExtResource("2_kds0a")
+theme_override_font_sizes/normal_font_size = 24
+text = "99 / 99"
+autowrap_mode = 0

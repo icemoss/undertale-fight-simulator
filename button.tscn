@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://std2uyjjn3j5"]
+[gd_scene load_steps=3 format=3 uid="uid://std2uyjjn3j5"]
 
 [ext_resource type="Script" uid="uid://demksm1mvoot3" path="res://button.gd" id="1_r04n3"]
+[ext_resource type="FontFile" uid="uid://bq7brfb6lvw0w" path="res://fonts/DTM-Sans.otf" id="2_n4tde"]
 
 [node name="Button" type="Area2D"]
 script = ExtResource("1_r04n3")
@@ -8,6 +9,13 @@ script = ExtResource("1_r04n3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 318.0
+offset_bottom = 173.0
+theme_override_fonts/normal_font = ExtResource("2_n4tde")
+theme_override_font_sizes/normal_font_size = 27
+scroll_active = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

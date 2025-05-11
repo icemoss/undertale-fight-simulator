@@ -1,7 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqynebh8aul27"]
+[gd_scene load_steps=22 format=3 uid="uid://bqynebh8aul27"]
 
 [ext_resource type="PackedScene" uid="uid://c4oy8rjleljvc" path="res://bullet_board.tscn" id="1_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bnq44ufiu1g2i" path="res://soul.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dxn1t4lvtusb0" path="res://sprites/background.png" id="1_w48qg"]
+[ext_resource type="PackedScene" uid="uid://btbx3jpgrmwal" path="res://menu.tscn" id="2_vivmo"]
 [ext_resource type="Texture2D" uid="uid://fluu324y7i4f" path="res://sprites/fight.png" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://hfhoqv28ivng" path="res://sprites/fight_selected.png" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://b0hf4taw4o6ut" path="res://sprites/act.png" id="4_7mycd"]
@@ -10,8 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://std2uyjjn3j5" path="res://button.tscn" id="7_5vw27"]
 [ext_resource type="Texture2D" uid="uid://cvctf71n3yem8" path="res://sprites/act_selected.png" id="7_efxa6"]
 [ext_resource type="Texture2D" uid="uid://2odsb87lf23h" path="res://sprites/item_selected.png" id="9_dg77c"]
+[ext_resource type="PackedScene" uid="uid://dgu2yavjppo0v" path="res://stat_bar.tscn" id="11_w48qg"]
 [ext_resource type="Texture2D" uid="uid://db0u3v1haplag" path="res://sprites/spare_selected.png" id="11_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://cgrhpo52l3s5s" path="res://fight_controller.tscn" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://bnq1am6dc1k2q" path="res://sprites/soul.png" id="15_yaehf"]
+[ext_resource type="Texture2D" uid="uid://30fg7fnmjiq5" path="res://sprites/soul_iframes.png" id="16_074og"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w48qg"]
 size = Vector2(110, 42)
@@ -27,13 +32,22 @@ size = Vector2(110, 42)
 
 [node name="Main" type="Node2D"]
 
-[node name="BulletBoard2" parent="." instance=ExtResource("1_dg77c")]
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 240)
+texture = ExtResource("1_w48qg")
+
+[node name="Menu" parent="." instance=ExtResource("2_vivmo")]
+position = Vector2(320, 319)
+
+[node name="BulletBoard" parent="." instance=ExtResource("1_dg77c")]
+visible = false
 position = Vector2(320, 319)
 
 [node name="FightButton" parent="." instance=ExtResource("7_5vw27")]
 position = Vector2(86, 452)
-unhighlighted_button = ExtResource("3_h2yge")
-highlighted_button = ExtResource("4_1bvp3")
+unhighlighted_texture = ExtResource("3_h2yge")
+highlighted_texture = ExtResource("4_1bvp3")
+item = 4
 
 [node name="CollisionShape2D" parent="FightButton" index="0"]
 shape = SubResource("RectangleShape2D_w48qg")
@@ -43,8 +57,9 @@ texture = ExtResource("3_h2yge")
 
 [node name="ActButton" parent="." instance=ExtResource("7_5vw27")]
 position = Vector2(239, 452)
-unhighlighted_button = ExtResource("4_7mycd")
-highlighted_button = ExtResource("7_efxa6")
+unhighlighted_texture = ExtResource("4_7mycd")
+highlighted_texture = ExtResource("7_efxa6")
+item = 4
 
 [node name="CollisionShape2D" parent="ActButton" index="0"]
 shape = SubResource("RectangleShape2D_vivmo")
@@ -54,8 +69,9 @@ texture = ExtResource("4_7mycd")
 
 [node name="ItemButton" parent="." instance=ExtResource("7_5vw27")]
 position = Vector2(399, 452)
-unhighlighted_button = ExtResource("5_272bh")
-highlighted_button = ExtResource("9_dg77c")
+unhighlighted_texture = ExtResource("5_272bh")
+highlighted_texture = ExtResource("9_dg77c")
+item = 4
 
 [node name="CollisionShape2D" parent="ItemButton" index="0"]
 shape = SubResource("RectangleShape2D_2cqfq")
@@ -65,8 +81,9 @@ texture = ExtResource("5_272bh")
 
 [node name="MercyButton" parent="." instance=ExtResource("7_5vw27")]
 position = Vector2(554, 452)
-unhighlighted_button = ExtResource("6_5vw27")
-highlighted_button = ExtResource("11_ycdy4")
+unhighlighted_texture = ExtResource("6_5vw27")
+highlighted_texture = ExtResource("11_ycdy4")
+item = 4
 
 [node name="CollisionShape2D" parent="MercyButton" index="0"]
 shape = SubResource("RectangleShape2D_yaehf")
@@ -74,9 +91,17 @@ shape = SubResource("RectangleShape2D_yaehf")
 [node name="Sprite2D" parent="MercyButton" index="1"]
 texture = ExtResource("6_5vw27")
 
+[node name="StatBar" parent="." instance=ExtResource("11_w48qg")]
+offset_left = 274.0
+offset_top = 399.0
+offset_right = 274.0
+offset_bottom = 399.0
+
 [node name="Soul" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(47, 453)
 speed = 120
+texture = ExtResource("15_yaehf")
+iframe_texture = ExtResource("16_074og")
 
 [node name="FightController" parent="." instance=ExtResource("12_dg77c")]
 
