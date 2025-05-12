@@ -37,10 +37,10 @@ position = Vector2(320, 240)
 texture = ExtResource("1_w48qg")
 
 [node name="Menu" parent="." instance=ExtResource("2_vivmo")]
+visible = false
 position = Vector2(320, 319)
 
 [node name="BulletBoard" parent="." instance=ExtResource("1_dg77c")]
-visible = false
 position = Vector2(320, 319)
 
 [node name="FightButton" parent="." instance=ExtResource("7_5vw27")]
@@ -97,13 +97,13 @@ offset_top = 399.0
 offset_right = 274.0
 offset_bottom = 399.0
 
+[node name="FightController" parent="." instance=ExtResource("12_dg77c")]
+
 [node name="Soul" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(47, 453)
 speed = 120
 texture = ExtResource("15_yaehf")
 iframe_texture = ExtResource("16_074og")
-
-[node name="FightController" parent="." instance=ExtResource("12_dg77c")]
 
 [editable path="FightButton"]
 [editable path="ActButton"]

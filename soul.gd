@@ -140,6 +140,7 @@ func use_item(item: global.ITEMS):
 
 func move_to_location(new_location: LOCATIONS) -> void:
 	location = new_location
+	global.play_sound(global.SOUNDS.MENU)
 	match new_location:
 		LOCATIONS.FIGHT:
 			global_position.x = 47
