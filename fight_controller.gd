@@ -11,7 +11,7 @@ func _ready() -> void:
 	global.connect("hp_changed", on_hp_changed)
 	global.connect("attack_ended", on_attack_ended)
 	#debug
-	attack = 6
+	#attack = 10
 
 
 func _process(delta: float) -> void:
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 						var spawn_height := randi_range(0, 300)
 						spawn_bullet(0, spawn_height, 120.0)
 						spawn_bullet(640, spawn_height, 120.0)
-						spawn_damage_area(randi_range(240, 350), randi_range(250,350), 30, 30, 0.5, 1.0)
+						spawn_damage_area(randi_range(240, 350), randi_range(250,450), 30, 30, 0.5, 1.0)
 				else:
 					detect_finished_attack()
 			1:
@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 						elapsed_time -= 0.5
 						cycles += 1
 						for i in range(5):
-							spawn_bullet(0 if cycles % 2 == 0 else 640, randi_range(0, 300), 130.0)
+							spawn_bullet(0 if cycles % 2 == 0 else 640, randi_range(200, 450), 130.0)
 				else:
 					detect_finished_attack()
 			2:
@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 					if elapsed_time > 0.2:
 						elapsed_time -= 0.2
 						cycles += 1
-						spawn_damage_area(randi_range(240, 350), randi_range(250,350), 50, 50, 1.0, 3.0)
+						spawn_damage_area(randi_range(240, 350), randi_range(200,450), 50, 50, 1.0, 3.0)
 				else:
 					detect_finished_attack()
 			3:
@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 					if elapsed_time > 0.1:
 						elapsed_time -= 0.1
 						cycles += 1
-						spawn_bullet(0 if cycles % 2 == 0 else 640, randi_range(0, 300), 150.0)
+						spawn_bullet(0 if cycles % 2 == 0 else 640, randi_range(200, 450), 150.0)
 				else:
 					detect_finished_attack()
 			4:
@@ -81,9 +81,37 @@ func _process(delta: float) -> void:
 						spawn_bullet(randi_range(243, 398), 0, 400.0)
 				else:
 					detect_finished_attack()
+			7:
+				if cycles < 200:
+					if elapsed_time > 0.1:
+						elapsed_time -= 0.1
+						cycles += 1
+						spawn_damage_area(randi_range(240, 390), randi_range(250,390), 10, 10, 1.5, 1.5)
+				else:
+					detect_finished_attack()
+			8: 
+				if cycles < 30:
+					if elapsed_time > 0.4:
+						elapsed_time -= 0.4
+						cycles += 1
+						spawn_bullet(choose_randomly([0,640]), randi_range(250, 400), 200.0)
+				else:
+					detect_finished_attack()
+			9:
+				if cycles < 100:
+					if elapsed_time > 0.2:
+						elapsed_time -= 0.2
+						cycles += 1
+						if randi_range(0,1) == 0:
+							spawn_damage_area(randi_range(240, 390), randi_range(250,390), 10, 10, 1.5, 0.5)
+						else:
+							spawn_bullet(choose_randomly([0,640]), randi_range(250, 400), 100.0)
+				else:
+					detect_finished_attack()
 			_:
-				global.mode = global.MODES.MENU
-				global.emit_signal("mode_changed")
+				if cycles < 1:
+					cycles += 1
+					global.end_game()
 
 
 func spawn_bullet(x: int, y: int, speed: float) -> void:
@@ -130,5 +158,3 @@ func on_attack_ended() -> void:
 	elapsed_time = 0
 	cycles = 0
 	attack += 1
-	if attack > 6:
-		attack = 0

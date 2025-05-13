@@ -18,9 +18,9 @@ var hurt: AudioStreamMP3
 var item: AudioStreamMP3
 var menu: AudioStreamMP3
 var player: AudioStreamPlayer
-var broke_player: AudioStreamPlayer
+var secondary_player: AudioStreamPlayer
 
-enum SOUNDS { BROKE, MENU }
+enum SOUNDS { BROKE, MENU, WIN }
 
 
 func _ready() -> void:
@@ -33,9 +33,9 @@ func _ready() -> void:
 	add_child(player)
 	player.stream = preload("res://sfx/battlestart.mp3")
 	player.play()
-	broke_player = AudioStreamPlayer.new()
-	broke_player.stream = broke
-	add_child(broke_player)
+	secondary_player = AudioStreamPlayer.new()
+	secondary_player.stream = broke
+	add_child(secondary_player)
 
 func change_hp(amount: int) -> void:
 	if iframes == 0.0 or amount > 0:
@@ -57,13 +57,19 @@ func play_sound(sound: SOUNDS) -> void:
 	print(sound)
 	match sound:
 		SOUNDS.BROKE:
-			broke_player.play()
+			secondary_player.play()
 		SOUNDS.MENU:
 			player.stream = menu
 			player.play()
+		SOUNDS.WIN:
+			secondary_player.stream = preload("res://sfx/victory.mp3")
+			secondary_player.play()
 		_:
 			player.stream = preload("res://sfx/battlestart.mp3")
 			player.play()
+
+func end_game() -> void:
+	play_sound(SOUNDS.WIN)
 
 
 var soul_position = Vector2()
