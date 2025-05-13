@@ -7,13 +7,14 @@ extends Sprite2D
 @export var item_4: Node2D
 
 const messages = [
-	"Froggit hops close",
-	"Call me",
-	"Free bird",
-	"etc etc", 
-	"lorem ipsum",
-	"godot editor stuffs",
-	"woo"
+	"Surprisingly accurate simulation",
+	"Faithfully sourced fonts",
+	"Dodge the bullets!",
+	"Remember to heal",
+	"Have fun :D - IceMoss",
+	"Doing well!",
+	"Undertale but on the web",
+	"Check out Deltarune!"
 ]
 
 func _ready() -> void:
