@@ -2,7 +2,7 @@
 
 ## How To Play
 
-Visit https://icemoss.github.io/undertale-fight-simulator/out/undertale-fight-simulator.html in a modern desktop browser.
+Visit https://icemoss.github.io/undertale-fight-simulator/out/introduction.html in a modern desktop browser.
 Alternatively, download the source code, open in the Godot Editor, and export for a different platform.
 
 ### Controls
