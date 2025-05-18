@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Undertale Fight Simulator</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="./undertale-fight-simulator.icon.png" />
+        <style>
+            @font-face {
+                font-family: "Undertale";
+                src: url("../fonts/DTM-Sans.otf") format("opentype");
+            }
+
+            body {
+                font-family: "Undertale", "Courier New", monospace;
+                background-color: black;
+                color: white;
+                text-align: center;
+                padding: 5rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            p {
+                font-size: 2rem;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+                text-align: left;
+                margin: 0 auto;
+                display: inline-block;
+            }
+
+            li {
+                font-size: 1.7rem;
+            }
+
+            .start-button {
+                background-color: transparent;
+                color: white;
+                border: 3px solid white;
+                padding: 12px 40px;
+                margin: 1rem;
+                font-size: 1.3rem;
+                cursor: pointer;
+                font-family: "Undertale", "Courier New", monospace;
+            }
+
+            .start-button:hover {
+                border: 3px solid yellow;
+                color: yellow;
+            }
+
+            footer {
+                font-size: 0.8rem;
+                padding: 4rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Undertale Fight Simulator</h1>
+        <p>
+            This Undertale Fight Simulator aims to be a faithful recreation of
+            the battle system found within Undertale.
+        </p>
+        <p>This project was created by the Godot engine, check it out!</p>
+        <p>Controls:</p>
+        <ul>
+            <li>Menu Navigation - Arrow Keys</li>
+            <li>Accept Menu - Z</li>
+            <li>Exit Submenu - X</li>
+            <li>Move Soul - Arrow Keys</li>
+            <li>Move Soul Slowly - X</li>
+        </ul>
+        <form
+            action="https://icemoss.github.io/undertale-fight-simulator/out/undertale-fight-simulator.html"
+        >
+            <input type="submit" class="start-button" value="Start Game" />
+        </form>
+
+        <footer>
+            Undertale is a registered trademark of Toby Fox. This is a fan
+            project and is unaffiliated.
+        </footer>
+    </body>
+</html>
